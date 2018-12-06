@@ -1,5 +1,6 @@
 package com.example.annafragoso.aulaandroid;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,11 @@ public class CadastroActivity extends AppCompatActivity {
         txtSenha = findViewById(R.id.txtSenha);
         btnCad = findViewById(R.id.btnCad);
 
+        Usuario usuario = UsuarioSingleton.getInstance().getUsuario();
+
+        if(usuario != null) {
+            txtEmail.setText(usuario.getEmail());
+        }
         View.OnClickListener listener = new View.OnClickListener() {
 
             @Override
@@ -32,6 +38,17 @@ public class CadastroActivity extends AppCompatActivity {
                 UsuarioSingleton.getInstance().setUsuario(usuario);
 
                 SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = prefs.edit();
+
+                editor.putString("email", usuario.getEmail());
+
+                editor.apply();
+
+
+
+                    Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
+                    startActivity(intent);
             }
         };
         btnCad.setOnClickListener(listener);
