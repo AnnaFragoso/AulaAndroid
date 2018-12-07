@@ -1,10 +1,12 @@
 package com.example.annafragoso.aulaandroid;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
+        if(item.getItemId() == R.id.abrir_atividade) {
+            Intent intent = new Intent(MainActivity.this, AnotacaoFragment.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Carrega o menu
+        getMenuInflater().inflate(R.menu.navegacao, menu);
+        return true;
     }
 }
