@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                             menuItem.setChecked(true);
                         }
                         drawerLayout.closeDrawers();
-                        if (menuItem.getItemId() == R.id.action_settings) {
+                        if (menuItem.getItemId() == R.id.action_anotacao) {
                             AnotacaoFragment fragment = new AnotacaoFragment();
                             getSupportFragmentManager().beginTransaction().replace(
                                     R.id.frag_container, fragment).commit();
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        if(item.getItemId() == R.id.abrir_atividade) {
+        if(item.getItemId() == R.id.action_anotacao) {
             Intent intent = new Intent(MainActivity.this, AnotacaoFragment.class);
             startActivity(intent);
         }
