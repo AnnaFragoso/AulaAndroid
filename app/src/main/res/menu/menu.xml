@@ -6,6 +6,11 @@
             android:checked="false"
             android:icon="@android:drawable/ic_menu_preferences"
             android:title="Anotação" />
+        <item
+            android:id="@+id/action_lista"
+            android:checked="false"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="Lista de Anotação" />
     </group>
 
 </menu>

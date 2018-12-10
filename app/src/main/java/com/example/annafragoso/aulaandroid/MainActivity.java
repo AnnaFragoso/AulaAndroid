@@ -8,11 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    Menu action_messages;
 
 
     @Override
@@ -42,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
                                     R.id.frag_container, fragment).commit();
                             return true;
                         }
+                        if (menuItem.getItemId() == R.id.action_lista) {
+                            ListaFragment fragment = new ListaFragment();
+                            getSupportFragmentManager().beginTransaction().replace(
+                                    R.id.frag_container, fragment).commit();
+                            return true;
+                        }
+
                         return false;
                     }
                 });
@@ -54,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+
     }
 
     @Override
@@ -65,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, AnotacaoFragment.class);
             startActivity(intent);
         }
+        if(item.getItemId() == R.id.action_lista) {
+            Intent intent = new Intent(MainActivity.this, ListaFragment.class);
+            startActivity(intent);
+        }
+
+        if(item.getItemId() == R.id.action_messages) {
+            SobreFragment fragment = new SobreFragment();
+            getSupportFragmentManager().beginTransaction().replace(
+                    R.id.frag_container, fragment).commit();
+        }
         return super.onOptionsItemSelected(item);
 
     }
@@ -74,4 +94,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.navegacao, menu);
         return true;
     }
+
+
+
 }

@@ -2,6 +2,7 @@ package com.example.annafragoso.aulaandroid;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,10 +46,29 @@ public class CadastroActivity extends AppCompatActivity {
 
                 editor.apply();
 
+                /*------------------------------------------------ VALIDAÇÃO--------------------------------------------*/
+                if (txtEmail.getText().toString().isEmpty()) {
+                    Snackbar.make(v, "Informar email/senha!", Snackbar.LENGTH_SHORT)
+                            .setAction("Ação", null).show();
+                    return;
+                }
 
+                if (txtSenha.getText().toString().isEmpty()) {
+                    Snackbar.make(v, "Informar email/senha!", Snackbar.LENGTH_SHORT)
+                            .setAction("Ação", null).show();
+                    return;
+                } else {
 
-                    Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    if (txtEmail.getText().toString() != null) {
+                        Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+
+                    if (txtSenha.getText().toString() != null) {
+                        Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                }
             }
         };
         btnCad.setOnClickListener(listener);

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SobreFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="10dp"
+        android:text="Sobre"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Aplicativo criado como atividade de Recuperação da matéria de Programação para Dispositivos Móveis, do 4 Semestre do curso Sistemas para Internet do Senac.
+
+Criado por: Anna Barbara de Jesus Fragoso"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="18dp"/>
+
+    <Button
+        android:id="@+id/btnSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acessar o site do curso"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"/>
+
+
+</FrameLayout>
