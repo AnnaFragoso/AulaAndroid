@@ -1,6 +1,8 @@
 package com.example.annafragoso.aulaandroid;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,7 +26,26 @@ public class SobreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sobre, container, false);
+        View v =  inflater.inflate(R.layout.fragment_sobre, container, false);
+
+        btnSite = v.findViewById(R.id.btnSite);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://sistemasparainter.net/";
+
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(url));
+                startActivity(intent);
+            }
+        };
+        btnSite.setOnClickListener(listener);
+
+
+
+
+        return v;
     }
 
 }

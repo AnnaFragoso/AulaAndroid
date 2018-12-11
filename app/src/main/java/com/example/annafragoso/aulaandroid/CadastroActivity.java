@@ -9,10 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CadastroActivity extends AppCompatActivity {
     EditText txtEmail;
     EditText txtSenha;
     Button btnCad;
+
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +53,11 @@ public class CadastroActivity extends AppCompatActivity {
 
                 /*------------------------------------------------ VALIDAÇÃO--------------------------------------------*/
                 if (txtEmail.getText().toString().isEmpty()) {
-                    Snackbar.make(v, "Informar email/senha!", Snackbar.LENGTH_SHORT)
-                            .setAction("Ação", null).show();
+                    boolean emailValido = validate(txtEmail.getText().toString());
+                    if(!emailValido) {
+                        Snackbar.make(v, "Informar email/senha!", Snackbar.LENGTH_SHORT)
+                                .setAction("Ação", null).show();
+                    }
                     return;
                 }
 
@@ -60,8 +68,8 @@ public class CadastroActivity extends AppCompatActivity {
                 } else {
 
                     if (txtEmail.getText().toString() != null) {
-                        Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
-                        startActivity(intent);
+                            Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
+                            startActivity(intent);
                     }
 
                     if (txtSenha.getText().toString() != null) {
@@ -73,5 +81,10 @@ public class CadastroActivity extends AppCompatActivity {
         };
         btnCad.setOnClickListener(listener);
 
+    }
+
+   public static boolean validate(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        return matcher.find();
     }
 }
