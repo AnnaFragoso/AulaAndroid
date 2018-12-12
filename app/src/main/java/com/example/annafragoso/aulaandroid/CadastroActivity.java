@@ -28,6 +28,13 @@ public class CadastroActivity extends AppCompatActivity {
         txtSenha = findViewById(R.id.txtSenha);
         btnCad = findViewById(R.id.btnCad);
 
+        final SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
+
+        if(prefs.contains("email")){
+            Intent intent = new Intent(CadastroActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+
         Usuario usuario = UsuarioSingleton.getInstance().getUsuario();
 
         if(usuario != null) {
@@ -40,16 +47,14 @@ public class CadastroActivity extends AppCompatActivity {
                 Usuario usuario = new Usuario();
                 usuario.setEmail(txtEmail.getText().toString());
                 usuario.setSenha(txtSenha.getText().toString());
-
                 UsuarioSingleton.getInstance().setUsuario(usuario);
 
-                SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
 
                 SharedPreferences.Editor editor = prefs.edit();
-
                 editor.putString("email", usuario.getEmail());
-
                 editor.apply();
+
+
 
                 /*------------------------------------------------ VALIDAÇÃO--------------------------------------------*/
                 if (txtEmail.getText().toString().isEmpty()) {

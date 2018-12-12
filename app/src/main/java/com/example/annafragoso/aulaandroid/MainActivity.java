@@ -1,6 +1,7 @@
 package com.example.annafragoso.aulaandroid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -9,18 +10,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    //private TextView txtNome;
+
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     Menu action_messages;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -63,8 +70,20 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        //código novo
+
+        TextView txtNome = navigationView.getHeaderView(0).findViewById(R.id.txtNome);
+
+        SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
+        String email = prefs.getString("email", "Usuário não identificado");
+        txtNome.setText(email);
 
     }
+
+
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -94,7 +113,5 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.navegacao, menu);
         return true;
     }
-
-
 
 }
