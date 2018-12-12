@@ -5,5 +5,9 @@
         android:title="Mensagem"
         android:icon="@android:drawable/sym_action_email"
         app:showAsAction="always" />
+    <item android:id="@+id/action_sair"
+        android:title="Sair"
+        android:text="Sair"
+        app:showAsAction="always" />
 
 </menu>

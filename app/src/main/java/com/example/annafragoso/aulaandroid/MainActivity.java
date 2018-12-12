@@ -2,6 +2,7 @@ package com.example.annafragoso.aulaandroid;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,11 +22,18 @@ public class MainActivity extends AppCompatActivity {
     Menu action_messages;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       /* FloatingActionButton mEditButton =
+                (FloatingActionButton) findViewById(R.id.fabEdit);
+        mEditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });*/
 
 
 
@@ -51,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
                                     R.id.frag_container, fragment).commit();
                             return true;
                         }
-                        if (menuItem.getItemId() == R.id.action_lista) {
+                        /*if (menuItem.getItemId() == R.id.action_lista) {
                             ListaFragment fragment = new ListaFragment();
                             getSupportFragmentManager().beginTransaction().replace(
                                     R.id.frag_container, fragment).commit();
                             return true;
-                        }
+                        }*/
 
                         return false;
                     }
@@ -95,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if(item.getItemId() == R.id.action_lista) {
-            Intent intent = new Intent(MainActivity.this, ListaFragment.class);
+            Intent intent = new Intent(MainActivity.this, ListaActivity.class);
             startActivity(intent);
         }
 
@@ -103,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
             SobreFragment fragment = new SobreFragment();
             getSupportFragmentManager().beginTransaction().replace(
                     R.id.frag_container, fragment).commit();
+        }
+        if(item.getItemId() == R.id.action_sair) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
 
