@@ -36,16 +36,22 @@ public class ListaFragment extends Fragment {
         /*addItem("oi", "tudo bem");
 
         /*private void addItem(String textoTitulo, String textoMensagem) {*/
-
-
+        Nota note = NotaSingleton.getInstance().getNota();
+       /* String textoTitulo = note.getTitulo();
+        String textoDescricao = note.getDescricao();*/
+        if(note != null) {
             CardView cardView = (CardView) LayoutInflater.from(getActivity())
                     .inflate(R.layout.card, container, false);
             cardView.findViewById(R.id.titulo);
             TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
             TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
-            titulo.setText("oi");
-            mensagem.setText("td bmm");
+
+                titulo.setText(note.getTitulo());
+                mensagem.setText(note.getDescricao());
             container.addView(cardView);
+            }
+
+
         /*}*/
 
         return v;
