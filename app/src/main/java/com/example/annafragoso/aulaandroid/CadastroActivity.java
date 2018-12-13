@@ -28,6 +28,7 @@ public class CadastroActivity extends AppCompatActivity {
         txtSenha = findViewById(R.id.txtSenha);
         btnCad = findViewById(R.id.btnCad);
 
+
         final SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
 
         if(prefs.contains("email")){

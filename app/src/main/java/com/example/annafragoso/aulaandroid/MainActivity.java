@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
     //private TextView txtNome;
@@ -123,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
         // Carrega o menu
         getMenuInflater().inflate(R.menu.navegacao, menu);
         return true;
+    }
+
+    public void retornar() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ListaFragment()).commit();
     }
 
 }
