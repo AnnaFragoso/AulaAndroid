@@ -14,11 +14,12 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class ListaFragment extends Fragment {
-    private ViewGroup mensagens;
+    private ViewGroup container;
 
     public ListaFragment() {
         // Required empty public constructor
     }
+
 
 
     @Override
@@ -27,22 +28,44 @@ public class ListaFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_lista, container, false);
 
-        mensagens = (ViewGroup) v.findViewById(R.id.container);
-        //addItem("Título 1", "Exemplo de mensagem.");
+        container = (ViewGroup) v.findViewById(R.id.container);
 
+
+        /*teste.setText(note.getTitulo());*/
+
+        /*addItem("oi", "tudo bem");
+
+        /*private void addItem(String textoTitulo, String textoMensagem) {*/
+
+
+            CardView cardView = (CardView) LayoutInflater.from(getActivity())
+                    .inflate(R.layout.card, container, false);
+            cardView.findViewById(R.id.titulo);
+            TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
+            TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
+            titulo.setText("oi");
+            mensagem.setText("td bmm");
+            container.addView(cardView);
+        /*}*/
 
         return v;
     }
+   /* Nota note = NotaSingleton.getInstance().getNota();
+    String textoTitulo = note.getTitulo();
+    String textoDescricao = note.getDescricao();*/
 
-    private void addItem(String textoDoTitulo, String textoDaMensagem) {
-        CardView cardView = (CardView) LayoutInflater.from(getActivity())
-                .inflate(R.layout.card, mensagens, false);
+    /*private void addItem(String textoTitulo, String textoMensagem) {
+
+
+       CardView cardView = (CardView) LayoutInflater.from(getActivity())
+                .inflate(R.layout.card, container, false);
+       cardView.findViewById(R.id.titulo);
         TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
         TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
-        titulo.setText(textoDoTitulo);
-        mensagem.setText(textoDaMensagem);
-        mensagens.addView(cardView);
-    }
+        titulo.setText(textoTitulo);
+        mensagem.setText(textoMensagem);
+        container.addView(cardView);
+    }*/
 
 
 

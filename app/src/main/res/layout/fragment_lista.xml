@@ -14,5 +14,17 @@
         android:textSize="24dp"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </FrameLayout>

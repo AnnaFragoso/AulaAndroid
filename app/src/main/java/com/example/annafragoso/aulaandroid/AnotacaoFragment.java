@@ -51,8 +51,8 @@ public class AnotacaoFragment extends Fragment {
 
                 NotaSingleton.getInstance().setNota(nota);
 
-                /*Nota note = NotaSingleton.getInstance().getNota();
-                teste.setText(note.getTitulo());*/
+                Nota note = NotaSingleton.getInstance().getNota();
+                teste.setText(note.getTitulo());
 
                 Snackbar.make(v, "Anotação salva!", Snackbar.LENGTH_SHORT)
                         .setAction("Ação", null).show();

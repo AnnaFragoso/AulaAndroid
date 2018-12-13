@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(savedInstanceState == null) {
+            ListaFragment listaFrag = new ListaFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, listaFrag).commit();
+        }
        /* FloatingActionButton mEditButton =
                 (FloatingActionButton) findViewById(R.id.fabEdit);
         mEditButton.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
                                     R.id.frag_container, fragment).commit();
                             return true;
                         }
-                        /*if (menuItem.getItemId() == R.id.action_lista) {
+                        if (menuItem.getItemId() == R.id.action_lista) {
                             ListaFragment fragment = new ListaFragment();
                             getSupportFragmentManager().beginTransaction().replace(
                                     R.id.frag_container, fragment).commit();
                             return true;
-                        }*/
+                        }
 
                         return false;
                     }
@@ -104,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if(item.getItemId() == R.id.action_lista) {
-            Intent intent = new Intent(MainActivity.this, ListaActivity.class);
+            Intent intent = new Intent(MainActivity.this, ListaFragment.class);
             startActivity(intent);
         }
 
