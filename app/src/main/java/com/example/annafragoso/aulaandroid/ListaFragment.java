@@ -7,6 +7,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -15,6 +16,7 @@ import android.widget.TextView;
  */
 public class ListaFragment extends Fragment {
     private ViewGroup container;
+    private Button btnApagar;
 
     public ListaFragment() {
         // Required empty public constructor
@@ -39,39 +41,48 @@ public class ListaFragment extends Fragment {
         Nota note = NotaSingleton.getInstance().getNota();
        /* String textoTitulo = note.getTitulo();
         String textoDescricao = note.getDescricao();*/
-        if(note != null) {
-            CardView cardView = (CardView) LayoutInflater.from(getActivity())
-                    .inflate(R.layout.card, container, false);
-            cardView.findViewById(R.id.titulo);
+
+      /* for(Integer i = note.get; i > 0; i++) {*/
+
+           if (note != null) {
+               CardView cardView = (CardView) LayoutInflater.from(getActivity())
+                       .inflate(R.layout.card, container, false);
+               cardView.findViewById(R.id.titulo);
             TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
             TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
 
-                titulo.setText(note.getTitulo());
-                mensagem.setText(note.getDescricao());
+               titulo.setText(note.getTitulo());
+               mensagem.setText(note.getDescricao());
+               container.addView(cardView);
+           }
+       /*}*/
+       /* private void addItem(String textoTitulo, String textoMensagem) {
+            TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
+            TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
+
+           titulo.setText(textioTitulo);
+            mensagem.setText(textoMensagem);
             container.addView(cardView);
-            }
+        }*/
 
 
-        /*}*/
+       /*------------------------------------APAGA NOTA---------------------------------*/
+      /*  View.OnClickListener listenerApagar = new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Nota nota2 = NotaSingleton.getInstance().getNota();
+                 if(nota2 != null) {
+                     nota2.setTitulo("");
+                     nota2.setDescricao("");
+                }
+           }
+       };
+       btnApagar.setOnClickListener(listenerApagar);*/
+
 
         return v;
     }
-   /* Nota note = NotaSingleton.getInstance().getNota();
-    String textoTitulo = note.getTitulo();
-    String textoDescricao = note.getDescricao();*/
 
-    /*private void addItem(String textoTitulo, String textoMensagem) {
-
-
-       CardView cardView = (CardView) LayoutInflater.from(getActivity())
-                .inflate(R.layout.card, container, false);
-       cardView.findViewById(R.id.titulo);
-        TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
-        TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
-        titulo.setText(textoTitulo);
-        mensagem.setText(textoMensagem);
-        container.addView(cardView);
-    }*/
 
 
 

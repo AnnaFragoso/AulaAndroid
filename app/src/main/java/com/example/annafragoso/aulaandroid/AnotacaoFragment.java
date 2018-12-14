@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,11 @@ public class AnotacaoFragment extends Fragment {
     private EditText txtDescricao;
     private Button btnSalvarNota;
 
+
     private TextView teste;
+
+    private CardView cardView;
+    private ViewGroup container;
 
     public AnotacaoFragment() {
         // Required empty public constructor
@@ -61,6 +66,10 @@ public class AnotacaoFragment extends Fragment {
                 MainActivity main = (MainActivity) getActivity();
                 main.retornar();
 
+                String textoTitulo = note.getTitulo();
+                String textoMensagem = note.getDescricao();
+
+               /* addItem(textoTitulo, textoMensagem);*/
 
 
 
@@ -68,8 +77,20 @@ public class AnotacaoFragment extends Fragment {
         };
         btnSalvarNota.setOnClickListener(listenerNota);
 
+
+
+
+
+
     return v;
     }
+       /*private void addItem(String textoTitulo, String textoMensagem) {
+            TextView titulo = (TextView) cardView.findViewById(R.id.titulo);
+            TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
 
+           /* titulo.setText(note.getTitulo());
+            mensagem.setText(note.getDescricao());*/
+         /*   container.addView(cardView);
+        }*/
 
 }

@@ -28,19 +28,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         if(savedInstanceState == null) {
             ListaFragment listaFrag = new ListaFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, listaFrag).commit();
         }
+
+
        /* FloatingActionButton mEditButton =
                 (FloatingActionButton) findViewById(R.id.fabEdit);
         mEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AnotacaoFragment.class);
+                startActivity(intent);
             }
         });*/
-
-
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -133,5 +136,6 @@ public class MainActivity extends AppCompatActivity {
     public void retornar() {
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ListaFragment()).commit();
     }
+
 
 }
